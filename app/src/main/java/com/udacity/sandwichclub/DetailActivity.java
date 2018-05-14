@@ -88,6 +88,8 @@ public class DetailActivity extends AppCompatActivity {
         
         Picasso.with(this)
                 .load(sandwich.getImage())
+                .placeholder(R.color.grey) //Add grey color for the placeholder
+                .error(R.color.red) //Add red color in case there was an error
                 .into(mMainImage);
         
 //        setTitle(sandwich.getMainName());

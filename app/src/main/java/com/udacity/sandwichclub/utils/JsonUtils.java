@@ -31,20 +31,25 @@ public class JsonUtils {
         //Get the name object which contains the mainName and the alias
         JSONObject sandwichName = sandwichJson.getJSONObject(SANDWICH_NAME);
         
+        /*
+        * By recommendations use optString() instead of getString(), since it returns a non value even when
+        * an empty value is returned by the API
+        * */
+        
         //Get the mainName from the sandwichName variable
-        String mainName = sandwichName.getString(SANDWICH_MAIN_NAME);
+        String mainName = sandwichName.optString(SANDWICH_MAIN_NAME);
         
         //Create a JSON array to get the sandwich alias, since the sandwich can have multiple names
         JSONArray aliasJson = sandwichName.getJSONArray(SANDWICH_ALIAS);
         
         //Get the place of origin from the sandwich Json object
-        String placeOfOrigin = sandwichJson.getString(SANDWICH_PLACE_OF_ORIGIN);
+        String placeOfOrigin = sandwichJson.optString(SANDWICH_PLACE_OF_ORIGIN);
         
         //Get the sandwich description from the sandwich Json object
-        String description = sandwichJson.getString(SANDWICH_DESCRIPTION);
+        String description = sandwichJson.optString(SANDWICH_DESCRIPTION);
         
         //Get the sandwich image from the sandwich Json object
-        String image = sandwichJson.getString(SANDWICH_IMAGE);
+        String image = sandwichJson.optString(SANDWICH_IMAGE);
         
         //Get the sandwich list of ingredients from the sandwich Json object
         JSONArray ingredientsJson = sandwichJson.getJSONArray(SANDWICH_INGREDIENTS);
